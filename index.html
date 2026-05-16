@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rêbar FX - Master Suite Pro</title>
+    <title>Amir Omer FX - Master Suite Pro</title>
     <style>
         :root { --neon-cyan: #00ffcc; --neon-gold: #d4af37; --neon-pink: #ff3399; --bg-dark: #000; }
         body { background: #000; margin: 0; overflow: hidden; font-family: sans-serif; touch-action: none; color: white; direction: ltr; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
@@ -78,7 +78,7 @@
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
             border: 2px solid #fff; display: flex; align-items: center; gap: 8px;
             user-select: none; touch-action: none;
-            display: none; /* تەنیا بۆ تەلەسم دەردەکەوێت */
+            display: none;
         }
         #bot-modal {
             display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -102,9 +102,9 @@
 <body oncontextmenu="return false;">
 
     <div id="splash-screen">
-        <div class="splash-title">Rêbar FX 🦅</div>
+        <div class="splash-title">Amir Omer Fx 🦅</div>
         <div class="splash-sub">سیستەمی پێشکەوتووی گەن</div>
-        <div class="splash-telegram">کەناڵی تێلیگرام: <b>Rêbar FX</b><span style="direction: ltr;">( @Rebar_FX )</span></div>
+        <div class="splash-telegram">ناوی چەناڵی تێلەگرام: <b>Amir0mar@</b></div>
     </div>
 
     <div id="lock-screen" style="display: none;">
@@ -115,7 +115,7 @@
             <input type="password" id="license-input" placeholder="کلیلی چوونەژوورەوە...">
             <button class="activate-btn" id="btn-activate">کلیلەکە چاڵاک بکە</button>
             <div id="lock-msg"></div>
-            <div style="font-size: 10px; color: #888; margin-top: 15px; line-height: 1.6;">بۆ وەرگرتنی کلیل پەیوەندی بکە بە:<br><strong>(@Rebar_FX)</strong></div>
+            <div style="font-size: 10px; color: #888; margin-top: 15px; line-height: 1.6;">بۆ وەرگرتنی کلیل پەیوەندی بکە بە:<br><strong>(@Amir0mar)</strong></div>
         </div>
     </div>
 
@@ -172,7 +172,7 @@
                     <option value="40">٩ گۆشە (40°)</option><option value="36">١٠ گۆشە (36°)</option><option value="32.7272">١١ گۆشە (32.7°)</option>
                     <option value="30">١٢ گۆشە (30°)</option><option value="27.6923">١٣ گۆشە (27.6°)</option><option value="25.7142">١٤ گۆشە (25.7°)</option>
                     <option value="24">١٥ گۆشە (24°)</option><option value="22.5">١٦ گۆشە (22.5°)</option><option value="21.1764">١٧ گۆشە (21.1°)</option>
-                    <option value="20">١٨ گۆشە (20°)</option><option value="18.9473">١٩ گۆشە (18.9°)</option><option value="18">٢٠ گۆشە (18°)</option>
+                    <option value="20">١٨ گۆشە (20°)</option><option value="18.9473">١Sni9.9°)</option><option value="18">٢٠ گۆشە (18°)</option>
                     <option value="17.1428">٢١ گۆشە (17.1°)</option><option value="16.3636">٢٢ گۆشە (16.3°)</option><option value="15.6521">٢٣ گۆشە (15.6°)</option>
                     <option value="15">٢٤ گۆشە (15°)</option>
                 </select>
@@ -248,11 +248,10 @@
         setInterval(() => { console.clear(); }, 2000);
     })();
 
-    /* --- CORE SYSTEM LOGIC (OBFUSCATED SCOPE) --- */
+    /* --- CORE SYSTEM LOGIC --- */
     (function(){
         "use strict";
 
-        // AUTO-SAVE LOGIC
         const savedIds = [
             'mainChartMode', 'calcBase', 'calcRetrace', 'planPrice', 'planTrend', 'planShape', 'planCycles',
             'hexDataType', 'hexBaseInput', 'hexTargetInput', 'hexTrendDir', 'hexStepValue', 'hexGridLayers',
@@ -296,7 +295,6 @@
         let dId = gId();
         document.getElementById('device-id-display').innerText = dId;
 
-        // کلیل و ناوی نوێ لێرە ڕێکخراوە
         async function vKey(k, id) {
             if (k === "199945") {
                 try { localStorage.setItem('rebar_license_key', k); } catch(e){}
@@ -578,7 +576,7 @@
             function dH(x,y,s,t,iC,tg,iE,iT){
                 ct.beginPath(); for(let i=0;i<6;i++){ let a=(Math.PI/3)*i, hx=x+s*Math.cos(a), hy=y+s*Math.sin(a); if(i===0) ct.moveTo(hx,hy); else ct.lineTo(hx,hy); } ct.closePath();
                 if(tg){ ct.fillStyle='rgba(255,51,51,0.9)'; ct.strokeStyle='#fff'; ct.lineWidth=4; }
-                else if(iC){ ct.fillStyle='rgba(255,255,255,0.2)'; ct.strokeStyle='#fff'; ct.lineWidth=2; }
+                else if(iC){ ct.fillStyle='rgba(255,255,255,0.2)'; ct.strokeStyle='#fff'; strokeWidth=2; }
                 else if(iE){ ct.fillStyle='rgba(0,255,255,0.15)'; ct.strokeStyle='#0ff'; ct.lineWidth=2; }
                 else if(iT){ ct.fillStyle='rgba(255,170,0,0.15)'; ct.strokeStyle='#fa0'; ct.lineWidth=2; }
                 else { ct.fillStyle='#060606'; ct.strokeStyle='#222'; ct.lineWidth=1.5; }
@@ -609,7 +607,6 @@
             }
         }
 
-        // --- MATRIX 24 (TALISMAN) ---
         window.isTimePriceSquared = function(price, base, timeAngle) {
             if(price <= 0) return false;
             let priceAngle = Math.abs(Math.sqrt(price) - Math.sqrt(base)) * 180;
@@ -691,7 +688,6 @@
             ctx.fillStyle = themeColor; ctx.font = "bold 75px monospace"; ctx.shadowBlur = 20; ctx.shadowColor = themeColor; ctx.fillText(base, cx, cy + 30); ctx.shadowBlur = 0;
         }
 
-        // --- BOT DRAG & LOGIC ---
         let isDraggingBot = false, botStartX, botStartY, initialBotX, initialBotY;
         const botBtn = document.getElementById('rebar-bot-btn');
 
@@ -789,7 +785,6 @@
             document.getElementById('bot-results').style.display = 'block';
         }
 
-        // --- MAP ZOOM & DRAG ---
         let sc=window.innerWidth<600?0.2:0.3, px=0, py=0, dg=false, rdg=false, sx, sy, iDist=0;
         const vM=document.getElementById('viewport-maps'), zL=document.getElementById('zoom-layer'), gw=document.getElementById('container-planetary');
         function upT(){ zL.style.transform=`translate(${px}px, ${py}px) scale(${sc})`; }
