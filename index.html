@@ -3,337 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMIR GANN STRATEGY</title>
+    <title>AMIR GANN ADVANCED BOT</title>
     <style>
         :root {
-            --bg-color: #0b0c10;
-            --container-bg: #11141a;
-            --primary-color: #66fcf1;
-            --secondary-color: #45f3ff;
-            --text-color: #c5c6c7;
-            --gold-color: #ffd700;
+            --bg-main: #06090d;
+            --bg-container: #0d1117;
+            --border-color: #30363d;
+            --accent-neon: #00ffcc;
+            --accent-gold: #ffd700;
+            --text-light: #f0f6fc;
+            --text-gray: #8b949e;
+            --btn-red: #da3637;
+            --bg-bot: #161b22;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-main);
+            color: var(--text-light);
             margin: 0;
-            padding: 15px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
-        .container {
-            background-color: var(--container-bg);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+        .top-navbar {
             width: 100%;
-            max-width: 480px;
-            padding: 20px;
-            border: 1px solid #1f2833;
-            margin-bottom: 20px;
+            max-width: 500px;
+            background-color: var(--bg-container);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-around;
         }
-        .header-box {
-            background-color: #1f232b;
-            border: 1px solid var(--gold-color);
+
+        .nav-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: var(--text-gray);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .nav-btn.active {
+            background-color: #1f242c;
+            color: var(--accent-neon);
+            border-color: var(--accent-neon);
+        }
+
+        .container {
+            background-color: var(--bg-container);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        .header-title {
+            background-color: #161b22;
+            border: 1px solid var(--accent-gold);
             padding: 12px;
             border-radius: 8px;
             text-align: center;
             font-weight: bold;
-            color: var(--gold-color);
+            color: var(--accent-gold);
             margin-bottom: 20px;
-            font-size: 18px;
-        }
-        .section-title {
-            color: var(--primary-color);
-            border-bottom: 1px dashed #333;
-            padding-bottom: 5px;
-            margin-top: 15px;
-            margin-bottom: 15px;
             font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-        .input-group {
-            margin-bottom: 12px;
+
+        .section-title {
+            color: var(--accent-neon);
+            border-bottom: 1px dashed #30363d;
+            padding-bottom: 5px;
+            margin: 20px 0 12px 0;
+            font-size: 14px;
         }
-        label {
-            display: block;
-            margin-bottom: 6px;
-            color: #8892b0;
-            font-size: 13px;
-        }
+
         input, select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #2e3742;
-            background-color: #0b0c10;
+            padding: 11px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-main);
             color: #fff;
             border-radius: 6px;
             box-sizing: border-box;
-            font-size: 15px;
+            font-size: 14px;
+            margin-bottom: 12px;
             outline: none;
         }
-        input:focus, select:focus {
-            border-color: var(--secondary-color);
-        }
-        .market-degree {
-            background-color: #000;
-            border: 1px dashed var(--secondary-color);
-            padding: 12px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            margin: 15px 0;
-        }
-        .checkbox-group {
-            display: flex;
-            justify-content: space-around;
-            margin: 15px 0;
-            background: #161b22;
-            padding: 10px;
-            border-radius: 6px;
-        }
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+
+        .gann-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
             font-size: 13px;
         }
-        .checkbox-item input {
-            width: auto;
+
+        .gann-table th, .gann-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
         }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #a71d2a;
+
+        .gann-table th {
+            background-color: #161b22;
+            color: var(--text-gray);
+        }
+
+        .res-text { color: #da3637; font-weight: bold; }
+        .sup-text { color: #2ea44f; font-weight: bold; }
+
+        .bot-box {
+            background-color: var(--bg-bot);
+            border: 1px solid #238636;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .bot-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .bot-status {
+            font-size: 11px;
+            background-color: #238636;
             color: white;
-            border: none;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .signal-card {
+            background: #0d1117;
+            border-left: 4px solid #fff;
+            padding: 12px;
             border-radius: 6px;
-            font-size: 15px;
+        }
+
+        .signal-buy { border-left-color: #2ea44f; }
+        .signal-sell { border-left-color: #da3637; }
+        .signal-hold { border-left-color: var(--accent-gold); }
+
+        .signal-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
+            font-size: 12px;
+            margin-bottom: 8px;
         }
-        button:hover {
-            background-color: #c92a3a;
+        .badge-buy { background: #2ea44f; color: #fff; }
+        .badge-sell { background: #da3637; color: #fff; }
+        .badge-hold { background: #30363d; color: var(--text-gray); }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 13px;
+            margin-top: 8px;
         }
-        .wheel-container {
+
+        .level-item {
+            background: #161b22;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .wheel-box {
             width: 100%;
-            max-width: 480px;
-            background: #11141a;
+            max-width: 500px;
+            background: var(--bg-container);
             border-radius: 12px;
-            padding: 25px 10px;
+            padding: 20px 10px;
             box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            border: 1px solid #1f2833;
+            margin-top: 15px;
+            border: 1px solid var(--border-color);
         }
+
         canvas {
-            background-color: #0b0c10;
+            background-color: #040608;
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header-box">
-        🎡 نەخشەی گەن (Wheel)
-    </div>
-
-    <div class="section-title">🧮 حیساباتی پلەی بازاڕ</div>
-    
-    <div class="input-group">
-        <label>نرخی سەنتەر (دەستپێک):</label>
-        <input type="number" id="centerPrice" value="2304" oninput="drawGannWheel()">
-    </div>
-    
-    <div class="input-group">
-        <label>یەکەم گەڕانەوە (لوتکە/بنکە):</label>
-        <input type="number" id="firstTurn" placeholder="نرخی لوتکە داخل بکە" oninput="drawGannWheel()">
-    </div>
-
-    <div class="market-degree">
-        پلەی بازاڕ: <span id="marketDegree" style="color: var(--secondary-color);">--°</span>
-    </div>
-
-    <div class="section-title">🧭 ئاراستە و شێوە و سووڕ</div>
-    
-    <div class="input-group">
-        <label>ئاراستە:</label>
-        <select id="direction" onchange="drawGannWheel()">
-            <option value="UP">( + ) UP</option>
-            <option value="DOWN">( - ) DOWN</option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <label>گۆشە:</label>
-        <select id="angles" onchange="drawGannWheel()">
-            <option value="45">٨ گۆشە (45°)</option>
-            <option value="90">٤ گۆشە (90°)</option>
-            <option value="180">٢ گۆشە (180°)</option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <label>سووڕ:</label>
-        <select id="cycles" onchange="drawGannWheel()">
-            <option value="1">١ سووڕ (360°)</option>
-            <option value="2">٢ سووڕ (720°)</option>
-            <option value="3">٣ سووڕ (1080°)</option>
-        </select>
-    </div>
-
-    <div class="checkbox-group">
-        <div class="checkbox-item">
-            <input type="checkbox" id="showRuler" checked onchange="drawGannWheel()">
-            <label for="showRuler" style="margin:0; color:#fff;">Ruler</label>
-        </div>
-        <div class="checkbox-item">
-            <input type="checkbox" id="showShape" checked onchange="drawGannWheel()">
-            <label for="showShape" style="margin:0; color:#fff;">Shape</label>
-        </div>
-        <div class="checkbox-item">
-            <input type="checkbox" id="showFan" checked onchange="drawGannWheel()">
-            <label for="showFan" style="margin:0; color:#fff;">Fan</label>
-        </div>
-    </div>
-
-    <button onclick="resetValues()">چوونە دەرەوە (سڕینەوەی کلیل)</button>
+<div class="top-navbar">
+    <button class="nav-btn active">🎡 چەرخی جان</button>
+    <button class="nav-btn">⏹️ چوارگۆشەی 9</button>
+    <button class="nav-btn">⬡ شەش پاڵوو</button>
+    <button class="nav-btn">📊 ماتریکس 24</button>
 </div>
 
-<div class="wheel-container">
-    <canvas id="gannCanvas" width="340" height="340"></canvas>
+<div class="container">
+    <div class="header-title">
+        🎡 سیستمی پێشکەوتووی ئۆتۆماتیکی ستراتیژی جان
+    </div>
+
+    <div class="section-title">📊 داتاکانی نرخ</div>
+    
+    <label>نرخی سەنتەر (دەستپێکی چەرخ):</label>
+    <input type="number" id="centerPrice" value="2300" oninput="runGannEngine()">
+    
+    <label>نرخی ئێستای بازاڕ (بۆ پشکنینی سیگناڵ):</label>
+    <input type="number" id="currentPrice" value="2328" oninput="runGannEngine()">
+
+    <div class="section-title">🧭 ڕێکخستنی ستراتیژی جان</div>
+    
+    <label>دابەشکاری گۆشەکان:</label>
+    <select id="angles" onchange="runGannEngine()">
+        <option value="45">٨ گۆشەیی (45° - پڕۆفیشناڵ)</option>
+        <option value="90">٤ گۆشەیی (90°)</option>
+    </select>
+
+    <div class="section-title">📋 خشتەی ئاستەکانی بەرگری و پشتگیری (Gann Levels)</div>
+    <table class="gann-table">
+        <thead>
+            <tr>
+                <th>قۆناغ</th>
+                <th>🔴 ئاستی بەرگری (Resistance)</th>
+                <th>🟢 ئاستی پشتگیری (Support)</th>
+            </tr>
+        </thead>
+        <tbody id="gannTableBody">
+            </tbody>
+    </table>
+
+    <div class="bot-box">
+        <div class="bot-header">
+            <span style="font-weight: bold; color: var(--accent-neon); font-size: 13px;">🤖 بۆتی ستراتیژی جان (Hourly Monitor)</span>
+            <span class="bot-status" id="botTime">Scan Log</span>
+        </div>
+        
+        <div id="signalContainer"></div>
+    </div>
+</div>
+
+<div class="wheel-box">
+    <canvas id="gannCanvas" width="360" height="360"></canvas>
 </div>
 
 <script>
-    function drawGannWheel() {
+    function runGannEngine() {
+        updateClock();
+        const centerPrice = parseFloat(document.getElementById('centerPrice').value) || 0;
+        const currentPrice = parseFloat(document.getElementById('currentPrice').value) || 0;
+        const angleStep = parseInt(document.getElementById('angles').value);
+
+        if (centerPrice <= 0) return;
+
+        let levels = [];
+        let baseRoot = Math.sqrt(centerPrice);
+        
+        let tableHtml = "";
+        for (let i = 1; i <= 4; i++) {
+            let stepValue = (angleStep / 180) * i * 0.125;
+            let resLevel = Math.pow(baseRoot + stepValue, 2);
+            let supLevel = Math.pow(baseRoot - stepValue, 2);
+            
+            levels.push({ resistance: resLevel, support: supLevel, index: i });
+            
+            tableHtml += `
+                <tr>
+                    <td>ئاستی ${i}</td>
+                    <td class="res-text">${Math.round(resLevel)}</td>
+                    <td class="sup-text">${Math.round(supLevel)}</td>
+                </tr>`;
+        }
+        document.getElementById('gannTableBody').innerHTML = tableHtml;
+
+        processBotSignal(currentPrice, levels);
+        drawWheel(centerPrice, levels);
+    }
+
+    function processBotSignal(currentPrice, levels) {
+        const container = document.getElementById('signalContainer');
+        
+        let closestRes = levels[0].resistance;
+        let closestSup = levels[0].support;
+
+        levels.forEach(lvl => {
+            if (lvl.resistance > currentPrice && lvl.resistance < closestRes) closestRes = lvl.resistance;
+            if (lvl.support < currentPrice && lvl.support > closestSup) closestSup = lvl.support;
+        });
+
+        let resDiff = Math.abs(currentPrice - closestRes);
+        let supDiff = Math.abs(currentPrice - closestSup);
+        
+        let detailsHtml = "";
+
+        if (resDiff <= 4) { 
+            let sl = closestRes + 8; 
+            let tp1 = currentPrice - (resDiff * 2) - 5;
+            let tp2 = closestSup + 5;
+            
+            detailsHtml = `
+                <div class="signal-card signal-sell">
+                    <span class="signal-badge badge-sell">🔴 SIGNAL: SELL (Resistance Hit)</span>
+                    <div>بۆت تێبینی کرد: نرخ لە هێڵی بەرگری جان نێزیک بووەتەوە و گەڕاوەتەوە.</div>
+                    <div class="levels-grid">
+                        <div class="level-item">🎯 نرخ: <b>${Math.round(currentPrice)}</b></div>
+                        <div class="level-item" style="color:#da3637;">🛑 Stop Loss: <b>${Math.round(sl)}</b></div>
+                        <div class="level-item" style="color:#2ea44f;">💰 Target 1: <b>${Math.round(tp1)}</b></div>
+                        <div class="level-item" style="color:#2ea44f;">💰 Target 2: <b>${Math.round(tp2)}</b></div>
+                    </div>
+                </div>`;
+        } else if (supDiff <= 4) { 
+            let sl = closestSup - 8; 
+            let tp1 = currentPrice + (supDiff * 2) + 5;
+            let tp2 = closestRes - 5;
+
+            detailsHtml = `
+                <div class="signal-card signal-buy">
+                    <span class="signal-badge badge-buy">🟢 SIGNAL: BUY (Support Hit)</span>
+                    <div>بۆت تێبینی کرد: نرخ پاڵپشتی هێڵی جانی وەرگرتووە، کاتی کڕینە.</div>
+                    <div class="levels-grid">
+                        <div class="level-item">🎯 نرخ: <b>${Math.round(currentPrice)}</b></div>
+                        <div class="level-item" style="color:#da3637;">🛑 Stop Loss: <b>${Math.round(sl)}</b></div>
+                        <div class="level-item" style="color:#2ea44f;">💰 Target 1: <b>${Math.round(tp1)}</b></div>
+                        <div class="level-item" style="color:#2ea44f;">💰 Target 2: <b>${Math.round(tp2)}</b></div>
+                    </div>
+                </div>`;
+        } else {
+            detailsHtml = `
+                <div class="signal-card signal-hold">
+                    <span class="signal-badge badge-hold">🟡 STATUS: SCANNING MARKET</span>
+                    <div>بازاڕ لە دۆخی جێگیردایە و چاوڕوانی گەیشتنە بەم هێڵانەی جان:</div>
+                    <div class="levels-grid">
+                        <div class="level-item" style="color:#da3637;">🔺 بەربەستی داهاتوو: <b>${Math.round(closestRes)}</b></div>
+                        <div class="level-item" style="color:#2ea44f;">🔻 پشتگیری داهاتوو: <b>${Math.round(closestSup)}</b></div>
+                    </div>
+                </div>`;
+        }
+
+        container.innerHTML = detailsHtml;
+    }
+
+    function drawWheel(centerPrice, levels) {
         const canvas = document.getElementById('gannCanvas');
         const ctx = canvas.getContext('2d');
         const cx = canvas.width / 2;
         const cy = canvas.height / 2;
-        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        const centerPrice = parseFloat(document.getElementById('centerPrice').value) || 0;
-        const firstTurn = parseFloat(document.getElementById('firstTurn').value) || 0;
-        const direction = document.getElementById('direction').value;
-        const numAngles = parseInt(document.getElementById('angles').value);
-        const maxCycles = parseInt(document.getElementById('cycles').value);
-        
-        const showRuler = document.getElementById('showRuler').checked;
-        const showShape = document.getElementById('showShape').checked;
-        const showFan = document.getElementById('showFan').checked;
 
-        // ئەژمارکردنی پلەی بازاڕ
-        if (centerPrice > 0 && firstTurn > 0) {
-            let diff = Math.abs(Math.sqrt(firstTurn) - Math.sqrt(centerPrice));
-            let degree = (diff * 180).toFixed(1);
-            document.getElementById('marketDegree').innerText = degree + "°";
-        } else {
-            document.getElementById('marketDegree').innerText = "--°";
+        for (let a = 0; a < 360; a += 45) {
+            let rad = (a * Math.PI) / 180;
+            ctx.beginPath(); ctx.moveTo(cx, cy);
+            ctx.lineTo(cx + 160 * Math.cos(rad), cy + 160 * Math.sin(rad));
+            ctx.strokeStyle = '#00ffcc15'; ctx.stroke();
         }
 
-        // کێشانی بازنەکان
-        const maxRadius = 150;
-        const step = maxRadius / (maxCycles + 1);
-
-        for (let i = 1; i <= maxCycles + 1; i++) {
-            ctx.beginPath();
-            ctx.arc(cx, cy, step * i, 0, 2 * Math.PI);
-            ctx.strokeStyle = '#222';
-            ctx.lineWidth = 1;
-            ctx.stroke();
-        }
-
-        // کێشانی هێڵەکانی Fan
-        if (showFan) {
-            for (let a = 0; a < 360; a += 45) {
-                let rad = (a * Math.PI) / 180;
-                ctx.beginPath();
-                ctx.moveTo(cx, cx);
-                ctx.lineTo(cx + maxRadius * Math.cos(rad), cy + maxRadius * Math.sin(rad));
-                ctx.strokeStyle = 'rgba(102, 252, 241, 0.15)';
-                ctx.lineWidth = 1;
-                ctx.stroke();
-            }
-        }
-
-        // کێشانی ئەندازەیی Shape (چوارگۆشە یان هەشتگۆشە بەپێی ڕێکخستنەکە)
-        if (showShape) {
-            ctx.beginPath();
-            let points = 360 / numAngles;
-            for (let i = 0; i <= points; i++) {
-                let angle = i * numAngles;
-                let rad = (angle * Math.PI) / 180;
-                let r = maxRadius;
-                if (i === 0) ctx.moveTo(cx + r * Math.cos(rad), cy + r * Math.sin(rad));
-                else ctx.lineTo(cx + r * Math.cos(rad), cy + r * Math.sin(rad));
-            }
-            ctx.strokeStyle = 'rgba(255, 215, 0, 0.4)';
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-        }
-
-        // کێشانی سەنتەر
         ctx.beginPath();
-        ctx.arc(cx, cy, 18, 0, 2 * Math.PI);
-        ctx.fillStyle = '#ffd700';
-        ctx.fill();
-        ctx.fillStyle = '#000';
-        ctx.font = 'bold 10px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(centerPrice, cx, cy);
-
-        // بڵاوکردنەوەی نرخەکان لەسەر چەرخەکە (Ruler)
-        if (showRuler && centerPrice > 0) {
-            ctx.fillStyle = '#fff';
-            ctx.font = '10px sans-serif';
-            
-            let currentPrice = centerPrice;
-            let totalSteps = numAngles === 45 ? 8 : (numAngles === 90 ? 4 : 2);
-            
-            let factor = direction === 'UP' ? 1 : -1;
-            let stepIndex = 1;
-
-            for (let c = 1; c <= maxCycles; c++) {
-                let r = step * (c + 1);
-                for (let s = 0; s < totalSteps; s++) {
-                    let angle = s * numAngles;
-                    let rad = (angle * Math.PI) / 180;
-                    
-                    // هاوکێشەی ماتماتیکی چەرخی گۆشەی گەن
-                    let stepValue = (numAngles / 180) * stepIndex;
-                    let nextPrice = Math.pow(Math.sqrt(centerPrice) + (stepValue * factor * 0.125), 2);
-                    
-                    let tx = cx + (r - 10) * Math.cos(rad);
-                    let ty = cy + (r - 10) * Math.sin(rad);
-                    
-                    ctx.fillText(Math.round(nextPrice), tx, ty);
-                    stepIndex++;
-                }
-            }
+        for (let i = 0; i <= 8; i++) {
+            let rad = (i * 45 * Math.PI) / 180;
+            if (i === 0) ctx.moveTo(cx + 140 * Math.cos(rad), cy + 140 * Math.sin(rad));
+            else ctx.lineTo(cx + 140 * Math.cos(rad), cy + 140 * Math.sin(rad));
         }
+        ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)'; ctx.stroke();
+
+        ctx.beginPath(); ctx.arc(cx, cy, 22, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffd700'; ctx.fill();
+        ctx.fillStyle = '#000'; ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(centerPrice, cx, cy);
     }
 
-    function resetValues() {
-        document.getElementById('centerPrice').value = '2304';
-        document.getElementById('firstTurn').value = '';
-        drawGannWheel();
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('botTime').innerText = "کاتی پشکنین: " + now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 
-    // دەستپێکردنی یەکەم کێشان کاتێک لاپەڕەکە دەکرێتەوە
-    window.onload = drawGannWheel;
+    window.onload = runGannEngine;
 </script>
 
 </body>
