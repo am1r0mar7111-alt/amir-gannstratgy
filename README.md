@@ -1,1 +1,1 @@
-# amir-gannstratgy
+# Amir-Gannstratgy
