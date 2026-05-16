@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Amir Omer FX - Master Suite Pro</title>
+    <title>Amir Omer - Master Suite Pro</title>
     <style>
-        :root { --neon-cyan: #00ffcc; --neon-gold: #d4af37; --neon-pink: #ff3399; --bg-dark: #000; }
+        :root { --neon-cyan: #00ffcc; --neon-gold: #d4af37; --neon-pink: #ff3399; --neon-purple: #b366ff; --bg-dark: #000; }
         body { background: #000; margin: 0; overflow: hidden; font-family: sans-serif; touch-action: none; color: white; direction: ltr; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 
         /* Splash Screen */
@@ -29,7 +29,7 @@
         input, select { background: #0a0a0a; border: 1px solid #444; color: #fff; padding: 8px; border-radius: 5px; font-size: 14px; outline: none; width: 100%; box-sizing: border-box; text-align: center; font-weight: bold; font-family: monospace;}
         input:focus, select:focus { border-color: var(--neon-cyan); }
         .target-input-hex { border-color: #ff3333 !important; color: #ff3333; }
-        .toggle-group { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--neon-gold); font-size: 13px; font-weight: bold; margin-top: 10px; }
+        .toggle-group { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--neon-gold); font-size: 13px; margin-top: 10px; }
         .toggle-group input { width: auto; transform: scale(1.2); accent-color: var(--neon-gold); }
 
         /* Calculator Box */
@@ -102,9 +102,9 @@
 <body oncontextmenu="return false;">
 
     <div id="splash-screen">
-        <div class="splash-title">Amir Omer Fx 🦅</div>
+        <div class="splash-title">Amir Omer 🦅</div>
         <div class="splash-sub">سیستەمی پێشکەوتووی گەن</div>
-        <div class="splash-telegram">ناوی چەناڵی تێلەگرام: <b>Amir0mar@</b></div>
+        <div class="splash-telegram">کەناڵی تێلیگرام: <b>Amir Omer</b><span style="direction: ltr;">( @Amir0mar )</span></div>
     </div>
 
     <div id="lock-screen" style="display: none;">
@@ -113,7 +113,7 @@
             <div style="font-size: 12px; color: #ccc;">ئایدی مۆبایلەکەت:</div>
             <div class="device-id-box" id="device-id-display">...</div>
             <input type="password" id="license-input" placeholder="کلیلی چوونەژوورەوە...">
-            <button class="activate-btn" id="btn-activate">کلیلەکە چاڵاک بکە</button>
+            <button class="activate-btn" id="btn-activate">چالاککردن</button>
             <div id="lock-msg"></div>
             <div style="font-size: 10px; color: #888; margin-top: 15px; line-height: 1.6;">بۆ وەرگرتنی کلیل پەیوەندی بکە بە:<br><strong>(@Amir0mar)</strong></div>
         </div>
@@ -122,11 +122,12 @@
     <div class="header">
         <button class="menu-toggle" id="btn-menu">☰ ڕێکخستن</button>
         <div id="digitalClock" style="color: #00ffcc; font-size: 13px; font-weight: bold; border-left: 1px solid #333; padding-left: 10px;">00:00:00</div>
-        <span style="color: #d4af37; font-weight: bold; margin-left: auto;">Amir Omer</span>
+        <span style="color: #d4af37; font-weight: bold; margin-left: auto;">Amir0mar</span>
     </div>
+
     <div class="marquee-container">
         <marquee behavior="scroll" direction="right" scrollamount="4.5">
-            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, & Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Amir Omer) 🎯
+            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, Sq9, Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Amir Omer) 🎯
         </marquee>
     </div>
 
@@ -152,6 +153,7 @@
             <select id="mainChartMode" style="background: linear-gradient(135deg, #d4af37, #aa8529); color: #000; border: none; padding: 10px; font-size: 15px; border-radius: 5px; font-weight: bold; width: 90%;">
                 <option value="planetary">🎡 نەخشەی گەن (Wheel)</option>
                 <option value="hexagon">⬡ شەش‌گۆشە (Time & Price)</option>
+                <option value="sq9">🔲 چوارگۆشەی ٩ (Square of 9)</option>
                 <option value="talisman">🧿 تەلەسمی گەن (Matrix 24)</option>
             </select>
         </div>
@@ -172,7 +174,7 @@
                     <option value="40">٩ گۆشە (40°)</option><option value="36">١٠ گۆشە (36°)</option><option value="32.7272">١١ گۆشە (32.7°)</option>
                     <option value="30">١٢ گۆشە (30°)</option><option value="27.6923">١٣ گۆشە (27.6°)</option><option value="25.7142">١٤ گۆشە (25.7°)</option>
                     <option value="24">١٥ گۆشە (24°)</option><option value="22.5">١٦ گۆشە (22.5°)</option><option value="21.1764">١٧ گۆشە (21.1°)</option>
-                    <option value="20">١٨ گۆشە (20°)</option><option value="18.9473">١Sni9.9°)</option><option value="18">٢٠ گۆشە (18°)</option>
+                    <option value="20">١٨ گۆشە (20°)</option><option value="18.9473">١٩ گۆشە (18.9°)</option><option value="18">٢٠ گۆشە (18°)</option>
                     <option value="17.1428">٢١ گۆشە (17.1°)</option><option value="16.3636">٢٢ گۆشە (16.3°)</option><option value="15.6521">٢٣ گۆشە (15.6°)</option>
                     <option value="15">٢٤ گۆشە (15°)</option>
                 </select>
@@ -202,8 +204,45 @@
             <div class="menu-item" style="border-bottom: none;"><label style="color: #00ffcc;">ژمارەی چینەکان</label><input type="number" id="hexGridLayers" value="12" min="3"></div>
         </div>
 
+        <div id="controls-sq9" style="display: none;">
+            <div class="menu-item">
+                <label style="color:var(--neon-purple);">سەنتەری خشتەکە (نرخ)</label>
+                <input type="number" id="sq9CenterPrice" value="2304" style="border-color:var(--neon-purple);">
+            </div>
+            <div class="menu-item" style="background: rgba(255, 153, 0, 0.05); padding: 10px; border-radius: 5px; border: 1px dashed #ff9900;">
+                <label style="color: #ff9900;">🎯 گەڕان بەدوای نرخ (Search)</label>
+                <input type="number" id="sq9SearchPrice" placeholder="نموونە: 2350" style="background:#0a0a0a; border-color:#ff9900; color:#ff9900;">
+            </div>
+            <div class="menu-item">
+                <label style="color:var(--neon-purple);">بڕی هەنگاو (Step)</label>
+                <input type="number" id="sq9StepValue" value="1" step="0.5" style="border-color:var(--neon-purple);">
+            </div>
+            <div class="menu-item">
+                <label style="color:var(--neon-purple);">قەبارەی خشتەکە (ستانداردەکانی گەن)</label>
+                <select id="sq9GridCells" style="border-color:var(--neon-purple); color:var(--neon-purple);">
+                    <option value="9" selected>٩×٩ (٨١ خانە)</option>
+                    <option value="11">١١×١١ (١٢١ خانە)</option>
+                    <option value="13">١٣×١٣ (١٦٩ خانە)</option>
+                    <option value="15">١٥×١٥ (٢٢٥ خانە)</option>
+                    <option value="17">١٧×١٧ (٢٨٩ خانە)</option>
+                    <option value="19">١٩×١٩ (٣٦١ خانە)</option>
+                    <option value="21">٢١×٢١ (٤٤١ خانە)</option>
+                    <option value="25">٢٥×٢٥ (٦٢٥ خانە)</option>
+                    <option value="33">٣٣×٣٣ (١٠٨٩ خانە)</option>
+                </select>
+            </div>
+            <div class="menu-item" style="border-bottom: none;">
+                <label style="color:var(--neon-purple);">ئاراستەی بازاڕ</label>
+                <select id="sq9TrendDir" style="border-color:var(--neon-purple); color:var(--neon-purple);">
+                    <option value="up">📈 بەرزبوونەوە (+)</option>
+                    <option value="down" selected>📉 دابەزین (-)</option>
+                </select>
+            </div>
+        </div>
+
         <div id="controls-talisman" style="display: none;">
             <div class="menu-item"><label style="color: #00ffcc;">سەنتەر (Center Price)</label><input type="number" id="sq24BasePrice" value="4795"></div>
+            <div class="menu-item"><label style="color: #00ffcc;">ئاراستەی نەخشە (پێشاندان)</label><select id="sq24TrendDir"><option value="up">📈 بەرزبوونەوە (+)</option><option value="down" selected>📉 دابەزین (-)</option></select></div>
             <div class="menu-item" style="border-left: 3px solid #ff3399; background: rgba(255, 51, 153, 0.05);"><label style="color:var(--neon-pink);">کاتی دەستکرد (بۆ پشکنین)</label><input type="time" id="sq24ManualTime" oninput="window.drawSq24(); window.updateBotTime();"><div style="font-size: 10px; color: #88a; margin-top: 5px; text-align: center;">بەتاڵی بهێڵە بۆ کاتی لایڤ</div></div>
             <div class="menu-item"><label style="color: #00ffcc;">بڕی هەنگاو (Step)</label><input type="number" id="sq24StepValue" value="1" step="0.5"></div>
         </div>
@@ -227,6 +266,10 @@
                     <canvas id="hexCanvas"></canvas>
                 </div>
 
+                <div id="container-sq9" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <canvas id="sq9Canvas"></canvas>
+                </div>
+
                 <div id="container-talisman" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
                     <canvas id="sq24Canvas"></canvas>
                 </div>
@@ -248,14 +291,16 @@
         setInterval(() => { console.clear(); }, 2000);
     })();
 
-    /* --- CORE SYSTEM LOGIC --- */
+    /* --- CORE SYSTEM LOGIC (OBFUSCATED SCOPE) --- */
     (function(){
         "use strict";
 
+        // AUTO-SAVE LOGIC
         const savedIds = [
             'mainChartMode', 'calcBase', 'calcRetrace', 'planPrice', 'planTrend', 'planShape', 'planCycles',
             'hexDataType', 'hexBaseInput', 'hexTargetInput', 'hexTrendDir', 'hexStepValue', 'hexGridLayers',
-            'sq24BasePrice', 'sq24ManualTime', 'sq24StepValue'
+            'sq24BasePrice', 'sq24TrendDir', 'sq24ManualTime', 'sq24StepValue',
+            'sq9CenterPrice', 'sq9StepValue', 'sq9GridCells', 'sq9TrendDir', 'sq9SearchPrice'
         ];
         const savedChecks = ['planShowFan', 'planShowShape', 'planShowRuler'];
 
@@ -296,12 +341,6 @@
         document.getElementById('device-id-display').innerText = dId;
 
         async function vKey(k, id) {
-            if (k === "199945") {
-                try { localStorage.setItem('rebar_license_key', k); } catch(e){}
-                document.getElementById('lock-screen').style.display = 'none';
-                loadSet(); swM();
-                return;
-            }
             try {
                 let r = await fetch(`https://rebarfx-astro-default-rtdb.firebaseio.com/licenses/${k}.json`);
                 let d = await r.json();
@@ -347,7 +386,7 @@
 
         function swM() {
             let m = document.getElementById('mainChartMode').value;
-            ['planetary', 'hexagon', 'talisman'].forEach(mode => {
+            ['planetary', 'hexagon', 'sq9', 'talisman'].forEach(mode => {
                 let ctrl = document.getElementById('controls-' + mode);
                 if(ctrl) ctrl.style.display = (m === mode) ? 'block' : 'none';
                 let cont = document.getElementById('container-' + mode);
@@ -357,7 +396,11 @@
             let botBtn = document.getElementById('rebar-bot-btn');
             if(botBtn) botBtn.style.display = (m === 'talisman') ? 'flex' : 'none';
 
-            if(m === 'planetary') dPl(); else if(m === 'hexagon') dHx(); else if(m === 'talisman') window.drawSq24();
+            if(m === 'planetary') dPl(); 
+            else if(m === 'hexagon') dHx(); 
+            else if(m === 'sq9') window.drawSq9(); 
+            else if(m === 'talisman') window.drawSq24();
+
             saveSet();
         }
 
@@ -396,11 +439,19 @@
             }
         });
 
-        ['sq24BasePrice','sq24ManualTime','sq24StepValue'].forEach(id => {
+        ['sq24BasePrice','sq24TrendDir','sq24ManualTime','sq24StepValue'].forEach(id => {
             let el = document.getElementById(id);
             if(el) {
                 el.addEventListener('change', () => { saveSet(); if(document.getElementById('mainChartMode').value === 'talisman') window.drawSq24(); });
                 if(el.tagName === 'INPUT') el.addEventListener('input', () => { saveSet(); if(document.getElementById('mainChartMode').value === 'talisman') window.drawSq24(); });
+            }
+        });
+
+        ['sq9CenterPrice','sq9StepValue','sq9GridCells','sq9TrendDir','sq9SearchPrice'].forEach(id => {
+            let el = document.getElementById(id);
+            if(el) {
+                el.addEventListener('change', () => { saveSet(); if(document.getElementById('mainChartMode').value === 'sq9') window.drawSq9(); });
+                if(el.tagName === 'INPUT') el.addEventListener('input', () => { saveSet(); if(document.getElementById('mainChartMode').value === 'sq9') window.drawSq9(); });
             }
         });
 
@@ -576,7 +627,7 @@
             function dH(x,y,s,t,iC,tg,iE,iT){
                 ct.beginPath(); for(let i=0;i<6;i++){ let a=(Math.PI/3)*i, hx=x+s*Math.cos(a), hy=y+s*Math.sin(a); if(i===0) ct.moveTo(hx,hy); else ct.lineTo(hx,hy); } ct.closePath();
                 if(tg){ ct.fillStyle='rgba(255,51,51,0.9)'; ct.strokeStyle='#fff'; ct.lineWidth=4; }
-                else if(iC){ ct.fillStyle='rgba(255,255,255,0.2)'; ct.strokeStyle='#fff'; strokeWidth=2; }
+                else if(iC){ ct.fillStyle='rgba(255,255,255,0.2)'; ct.strokeStyle='#fff'; ct.lineWidth=2; }
                 else if(iE){ ct.fillStyle='rgba(0,255,255,0.15)'; ct.strokeStyle='#0ff'; ct.lineWidth=2; }
                 else if(iT){ ct.fillStyle='rgba(255,170,0,0.15)'; ct.strokeStyle='#fa0'; ct.lineWidth=2; }
                 else { ct.fillStyle='#060606'; ct.strokeStyle='#222'; ct.lineWidth=1.5; }
@@ -607,6 +658,112 @@
             }
         }
 
+        // --- GANN SQUARE OF 9 (لولیپێچ و گەڕان و بەرزبوونەوە/دابەزین) ---
+        window.drawSq9 = function() {
+            const canvas = document.getElementById('sq9Canvas'); if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const centerPrice = Math.round(parseFloat(document.getElementById('sq9CenterPrice').value)) || 2304;
+            const stepVal = parseFloat(document.getElementById('sq9StepValue').value) || 1;
+            const trendDir = document.getElementById('sq9TrendDir').value;
+            const searchPrice = parseFloat(document.getElementById('sq9SearchPrice').value);
+            let gridCells = parseInt(document.getElementById('sq9GridCells').value) || 9; 
+
+            if (gridCells % 2 === 0) gridCells++; 
+
+            const cellSize = 55;
+            const gridPixelSize = gridCells * cellSize; 
+            const radius = ((gridPixelSize / 2) * Math.SQRT2) + 35;
+            const baseSize = (radius * 2) + 120;
+            canvas.width = baseSize; canvas.height = baseSize; canvas.style.width = baseSize + 'px'; canvas.style.height = baseSize + 'px';
+            ctx.clearRect(0, 0, baseSize, baseSize);
+
+            const center = baseSize / 2, gridStartX = center - (gridPixelSize / 2), gridStartY = center - (gridPixelSize / 2);
+
+            ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(179, 102, 255, 0.3)'; ctx.beginPath(); ctx.arc(center, center, radius, 0, 2 * Math.PI); ctx.stroke();
+            ctx.textAlign = "center"; ctx.textBaseline = "middle";
+
+            for (let i = 0; i < 360; i++) {
+                let angleRad = Math.PI + (i * Math.PI / 180), cosA = Math.cos(angleRad), sinA = Math.sin(angleRad);
+                if (i % 5 === 0) {
+                    ctx.strokeStyle = '#553388'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(center + radius * cosA, center + radius * sinA); ctx.lineTo(center + (radius + 25) * cosA, center + (radius + 25) * sinA); ctx.stroke();
+                    if (i % 15 === 0) { ctx.save(); ctx.translate(center + (radius + 40) * cosA, center + (radius + 40) * sinA); ctx.rotate(angleRad + Math.PI/2); ctx.fillStyle = (i % 90 === 0) ? '#b366ff' : '#777'; ctx.font = 'bold 12px Arial'; ctx.fillText(i + '°', 0, 0); ctx.restore(); }
+                } else { ctx.strokeStyle = '#1a0d26'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(center + radius * cosA, center + radius * sinA); ctx.lineTo(center + (radius + 10) * cosA, center + (radius + 10) * sinA); ctx.stroke(); }
+            }
+
+            let grid = Array(gridCells).fill().map(() => Array(gridCells).fill(0));
+            let x = Math.floor(gridCells / 2);
+            let y = Math.floor(gridCells / 2);
+            let value = centerPrice;
+
+            let actualStep = (trendDir === 'up') ? stepVal : -stepVal;
+
+            grid[y][x] = value; 
+
+            let dirs = [[-1, 0], [0, -1], [1, 0], [0, 1]];
+
+            let dirIdx = 0, steps = 1, count = 1, totalCells = gridCells * gridCells;
+
+            while (count < totalCells) { 
+                for (let i = 0; i < 2; i++) { 
+                    for (let j = 0; j < steps; j++) { 
+                        if (count >= totalCells) break; 
+                        x += dirs[dirIdx][0]; 
+                        y += dirs[dirIdx][1]; 
+                        value = parseFloat((value + actualStep).toFixed(2)); 
+                        if (x >= 0 && x < gridCells && y >= 0 && y < gridCells) grid[y][x] = value; 
+                        count++; 
+                    } 
+                    dirIdx = (dirIdx + 1) % 4; 
+                } 
+                steps++; 
+            }
+
+            let centerIdx = Math.floor(gridCells / 2);
+            for (let row = 0; row < gridCells; row++) {
+                for (let col = 0; col < gridCells; col++) {
+                    let num = grid[row][col];
+                    if (num !== 0) {
+                        let cellX = gridStartX + col * cellSize, cellY = gridStartY + row * cellSize;
+
+                        let isCenter = (row === centerIdx && col === centerIdx);
+                        let isCross = (row === centerIdx || col === centerIdx || Math.abs(row - centerIdx) === Math.abs(col - centerIdx));
+                        let isTarget = (searchPrice && num === searchPrice);
+
+                        let bgCol = '#050505';
+                        let textCol = '#777';
+                        let borderCol = '#222';
+                        let borderW = 1;
+
+                        if (isTarget) {
+                            bgCol = 'rgba(255, 153, 0, 0.9)'; textCol = '#fff'; borderCol = '#fff'; borderW = 3;
+                        } else if (isCenter) {
+                            bgCol = '#fff'; textCol = '#000'; borderCol = '#fff'; borderW = 2;
+                        } else if (isCross) {
+                            bgCol = '#1a0033'; textCol = '#b366ff'; borderCol = 'rgba(179, 102, 255, 0.8)'; borderW = 2;
+                        }
+
+                        ctx.fillStyle = bgCol; 
+                        ctx.fillRect(cellX, cellY, cellSize, cellSize);
+
+                        ctx.strokeStyle = borderCol; 
+                        ctx.lineWidth = borderW; 
+                        ctx.strokeRect(cellX, cellY, cellSize, cellSize);
+
+                        ctx.fillStyle = textCol; 
+                        ctx.font = isTarget ? `bold ${cellSize * 0.45}px Arial` : `bold ${cellSize * 0.35}px Arial`; 
+
+                        if (isTarget || isCenter || isCross) {
+                            ctx.shadowBlur = 10; ctx.shadowColor = (isTarget ? '#ff9900' : (isCenter ? '#fff' : '#b366ff'));
+                        }
+
+                        ctx.fillText(num.toString(), cellX + cellSize/2, cellY + cellSize/2 + 2); 
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+        }
+
+        // --- MATRIX 24 (TALISMAN) ---
         window.isTimePriceSquared = function(price, base, timeAngle) {
             if(price <= 0) return false;
             let priceAngle = Math.abs(Math.sqrt(price) - Math.sqrt(base)) * 180;
@@ -622,6 +779,7 @@
             const cx = CANVAS_SIZE / 2, cy = CANVAS_SIZE / 2;
             const base = parseFloat(document.getElementById('sq24BasePrice').value) || 0;
             const stepVal = parseFloat(document.getElementById('sq24StepValue').value) || 1;
+            const trendDir = document.getElementById('sq24TrendDir').value;
             const manualTimeInput = document.getElementById('sq24ManualTime').value;
             const size = 24, rGrid = 1900, rClock = 1980; 
             const goldenHours = [10, 11, 15, 16, 18]; 
@@ -662,11 +820,20 @@
             for(let row = 0; row < size; row++) {
                 for(let col = 0; col < size; col++) {
                     let colHour = col + 1; 
-                    let val = parseFloat((base + ((23 - row) * size + col) * stepVal).toFixed(2));
+                    let val;
+                    if (trendDir === 'up') { val = parseFloat((base + ((23 - row) * size + col) * stepVal).toFixed(2)); } 
+                    else { val = parseFloat((base - (row * size + col) * stepVal).toFixed(2)); }
 
                     let x = startX + col * cellSize, y = startY + row * cellSize;
                     let isActiveCol = (colHour === activeColHour); let isGolden = goldenHours.includes(colHour);
-                    let isSquaring = isActiveCol && window.isTimePriceSquared(val, base, (colHour * 15) % 360);
+                    let isSquaring = false;
+
+                    if (val > 0) {
+                        let priceAngle = Math.abs(Math.sqrt(val) - Math.sqrt(base)) * 180;
+                        let diff = Math.abs((priceAngle % 360) - ((colHour * 15) % 360));
+                        if(diff > 180) diff = 360 - diff;
+                        isSquaring = isActiveCol && (diff <= 3 || Math.abs(diff - 45) <= 3 || Math.abs(diff - 90) <= 3 || Math.abs(diff - 180) <= 3);
+                    }
 
                     let cellW = cellSize - 6; let cellGrad = ctx.createLinearGradient(x, y, x + cellW, y + cellW);
                     if (isSquaring) { cellGrad.addColorStop(0, themeColor); cellGrad.addColorStop(1, '#006666'); }
@@ -694,7 +861,7 @@
         function initBotDrag() {
             if(!botBtn) return;
             botBtn.addEventListener('mousedown', dragBotStart); document.addEventListener('mousemove', dragBotMove); document.addEventListener('mouseup', dragBotEnd);
-            botBtn.addEventListener('touchstart', dragBotStart, {passive: false}); document.addEventListener('touchmove', dragBotMove, {passive: false}); document.addEventListener('touchend', dragBotEnd);
+            botBtn.addEventListener('touchstart', dragBotStart, {passive: false}); document.addEventListener('touchmove', dragBotMove, {passive: false}); document.addEventListener('touchmove', dragBotEnd);
         }
 
         function dragBotStart(e) {
@@ -729,19 +896,31 @@
 
             let base = parseFloat(document.getElementById('sq24BasePrice').value) || 0;
             let stepVal = parseFloat(document.getElementById('sq24StepValue').value) || 1;
+            let trendDir = document.getElementById('sq24TrendDir').value;
 
             let h = new Date().getHours(); let manual = document.getElementById('sq24ManualTime').value;
             if(manual) h = parseInt(manual.split(':')[0]);
             let targetHour = h === 0 ? 24 : h; let col = targetHour - 1; 
 
-            let n_float = (p - base - col * stepVal) / (24 * stepVal);
+            let n_float;
+            if (trendDir === 'up') {
+                n_float = (p - base - col * stepVal) / (24 * stepVal);
+            } else {
+                n_float = (base - p - col * stepVal) / (24 * stepVal);
+            }
 
             let n1 = Math.floor(n_float);
             let n2 = Math.ceil(n_float);
             if (n1 === n2) n2 = n1 + 1; 
 
-            let val1 = base + (n1 * 24 + col) * stepVal;
-            let val2 = base + (n2 * 24 + col) * stepVal;
+            let val1, val2;
+            if (trendDir === 'up') {
+                val1 = base + (n1 * 24 + col) * stepVal;
+                val2 = base + (n2 * 24 + col) * stepVal;
+            } else {
+                val1 = base - (n1 * 24 + col) * stepVal;
+                val2 = base - (n2 * 24 + col) * stepVal;
+            }
 
             let gridBelow = parseFloat(Math.min(val1, val2).toFixed(2));
             let gridAbove = parseFloat(Math.max(val1, val2).toFixed(2));
@@ -782,9 +961,12 @@
                 🛑 ستۆپ لۆس: <span style="color:#ff3333; font-weight:bold; font-family:monospace;">${sellSL}</span>
             `;
 
+            document.getElementById('buyBox').style.display = 'block';
+            document.getElementById('sellBox').style.display = 'block';
             document.getElementById('bot-results').style.display = 'block';
         }
 
+        // --- MAP ZOOM & DRAG ---
         let sc=window.innerWidth<600?0.2:0.3, px=0, py=0, dg=false, rdg=false, sx, sy, iDist=0;
         const vM=document.getElementById('viewport-maps'), zL=document.getElementById('zoom-layer'), gw=document.getElementById('container-planetary');
         function upT(){ zL.style.transform=`translate(${px}px, ${py}px) scale(${sc})`; }
