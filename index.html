@@ -113,7 +113,7 @@
             <div style="font-size: 12px; color: #ccc;">ئایدی مۆبایلەکەت:</div>
             <div class="device-id-box" id="device-id-display">...</div>
             <input type="password" id="license-input" placeholder="کلیلی چوونەژوورەوە...">
-            <button class="activate-btn" id="btn-activate">چالاککردن</button>
+            <button class="activate-btn" id="btn-activate">کلیلەکە چاڵاک بکە</button>
             <div id="lock-msg"></div>
             <div style="font-size: 10px; color: #888; margin-top: 15px; line-height: 1.6;">بۆ وەرگرتنی کلیل پەیوەندی بکە بە:<br><strong>(@Rebar_FX)</strong></div>
         </div>
@@ -122,11 +122,11 @@
     <div class="header">
         <button class="menu-toggle" id="btn-menu">☰ ڕێکخستن</button>
         <div id="digitalClock" style="color: #00ffcc; font-size: 13px; font-weight: bold; border-left: 1px solid #333; padding-left: 10px;">00:00:00</div>
-        <span style="color: #d4af37; font-weight: bold; margin-left: auto;">Rêbar_FX</span>
+        <span style="color: #d4af37; font-weight: bold; margin-left: auto;">Amir Omer</span>
     </div>
     <div class="marquee-container">
         <marquee behavior="scroll" direction="right" scrollamount="4.5">
-            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, & Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Rêbar FX) 🎯
+            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, & Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Amir Omer) 🎯
         </marquee>
     </div>
 
@@ -216,7 +216,7 @@
             <div id="zoom-layer">
 
                 <div class="master-wheel" id="container-planetary">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 150px; font-weight: bold; color: rgba(212, 175, 55, 0.05); pointer-events: none; text-align: center; white-space: nowrap; z-index: 0;">Rêbar FX</div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 150px; font-weight: bold; color: rgba(212, 175, 55, 0.05); pointer-events: none; text-align: center; white-space: nowrap; z-index: 0;">Amir Omer</div>
                     <div class="ring price-ring"></div><div class="ring angle-ring"></div><div class="ring time-ring"></div>
                     <div class="center-box" id="displayCenter">2304</div>
                     <svg id="svg-layer-plan"></svg>
@@ -296,7 +296,14 @@
         let dId = gId();
         document.getElementById('device-id-display').innerText = dId;
 
+        // کلیل و ناوی نوێ لێرە ڕێکخراوە
         async function vKey(k, id) {
+            if (k === "199945") {
+                try { localStorage.setItem('rebar_license_key', k); } catch(e){}
+                document.getElementById('lock-screen').style.display = 'none';
+                loadSet(); swM();
+                return;
+            }
             try {
                 let r = await fetch(`https://rebarfx-astro-default-rtdb.firebaseio.com/licenses/${k}.json`);
                 let d = await r.json();
@@ -515,7 +522,7 @@
             const rR=1250, aR=1400, cR=1530, hR=1680;
 
             ct.save(); ct.translate(cx,cy); ct.rotate(-Math.PI/6);
-            ct.fillStyle="rgba(0,255,255,0.03)"; ct.font="bold 400px Arial"; ct.textAlign="center"; ct.textBaseline="middle"; ct.fillText("Rêbar FX",0,-220);
+            ct.fillStyle="rgba(0,255,255,0.03)"; ct.font="bold 400px Arial"; ct.textAlign="center"; ct.textBaseline="middle"; ct.fillText("Amir Omer",0,-220);
             ct.font="bold 160px Arial"; ct.fillStyle="rgba(179,102,255,0.03)"; ct.fillText("TIME & PRICE MATRIX",0,150); ct.restore();
 
             for(let a=0;a<360;a+=30){
@@ -658,7 +665,6 @@
             for(let row = 0; row < size; row++) {
                 for(let col = 0; col < size; col++) {
                     let colHour = col + 1; 
-                    // هەمیشە ئاراستەی سەرەوەیە لە تەلەسمی گەن
                     let val = parseFloat((base + ((23 - row) * size + col) * stepVal).toFixed(2));
 
                     let x = startX + col * cellSize, y = startY + row * cellSize;
@@ -721,7 +727,6 @@
         window.openBot = function() { window.updateBotTime(); document.getElementById('bot-modal').style.display = 'block'; document.getElementById('bot-results').style.display = 'none'; document.getElementById('botPriceInput').value = ''; }
         window.closeBot = function() { document.getElementById('bot-modal').style.display = 'none'; }
 
-        // --- مێشکی بۆتەکە بۆ ٤ ئامانج ---
         window.generateMatrixSignal = function() {
             let p = parseFloat(document.getElementById('botPriceInput').value);
             if(!p || p <= 0) { alert("تکایە نرخێکی دروست بنووسە!"); return; }
@@ -733,7 +738,6 @@
             if(manual) h = parseInt(manual.split(':')[0]);
             let targetHour = h === 0 ? 24 : h; let col = targetHour - 1; 
 
-            // هەمیشە ئاراستەی سەرەوەیە لە هاوکێشەکەدا
             let n_float = (p - base - col * stepVal) / (24 * stepVal);
 
             let n1 = Math.floor(n_float);
