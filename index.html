@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Amir Omer - Master Suite Pro</title>
+    <title>Amir Omer FX - Master Suite Pro</title>
     <style>
         :root { --neon-cyan: #00ffcc; --neon-gold: #d4af37; --neon-pink: #ff3399; --neon-purple: #b366ff; --bg-dark: #000; }
         body { background: #000; margin: 0; overflow: hidden; font-family: sans-serif; touch-action: none; color: white; direction: ltr; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
@@ -29,7 +29,7 @@
         input, select { background: #0a0a0a; border: 1px solid #444; color: #fff; padding: 8px; border-radius: 5px; font-size: 14px; outline: none; width: 100%; box-sizing: border-box; text-align: center; font-weight: bold; font-family: monospace;}
         input:focus, select:focus { border-color: var(--neon-cyan); }
         .target-input-hex { border-color: #ff3333 !important; color: #ff3333; }
-        .toggle-group { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--neon-gold); font-size: 13px; margin-top: 10px; }
+        .toggle-group { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--neon-gold); font-size: 13px; font-weight: margin-top: 10px; }
         .toggle-group input { width: auto; transform: scale(1.2); accent-color: var(--neon-gold); }
 
         /* Calculator Box */
@@ -70,7 +70,7 @@
         .logout-btn { background: rgba(255,51,51,0.1); border: 1px dashed #ff3333; color: #ff3333; width: 100%; padding: 10px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 20px; }
 
         /* Bot Styling */
-        #rebar-bot-btn {
+        #amir-bot-btn {
             position: fixed; bottom: 30px; right: 20px; z-index: 100001;
             background: linear-gradient(135deg, var(--neon-gold), #ff9900);
             color: #000; padding: 12px 20px; border-radius: 30px;
@@ -102,9 +102,9 @@
 <body oncontextmenu="return false;">
 
     <div id="splash-screen">
-        <div class="splash-title">Amir Omer 🦅</div>
-        <div class="splash-sub">سیستەمی پێشکەوتووی گەن</div>
-        <div class="splash-telegram">کەناڵی تێلیگرام: <b>Amir Omer</b><span style="direction: ltr;">( @Amir0mar )</span></div>
+        <div class="splash-title">Amir Omer FX 🦅</div>
+        <div class="splash-sub">سیستەمی پێشکەوتووی جان</div>
+        <div class="splash-telegram">کەناڵی تێلیگرام: <b>Amir Omer FX</b><span style="direction: ltr;">( @Amir0mar )</span></div>
     </div>
 
     <div id="lock-screen" style="display: none;">
@@ -127,14 +127,14 @@
 
     <div class="marquee-container">
         <marquee behavior="scroll" direction="right" scrollamount="4.5">
-            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, Sq9, Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Amir Omer) 🎯
+            ✨ بەخێربێن بۆ سیستەمی پێشکەوتووی ماستەر (Planetary, Hexagon, Sq9, Matrix 24) — هەموو مافێکی پارێزراوە بۆ خاوەنی ئەپ (Amir Omer FX) 🎯
         </marquee>
     </div>
 
-    <div id="rebar-bot-btn">🤖 بۆتی گەن</div>
+    <div id="amir-bot-btn">🤖 بۆتی جان</div>
     <div id="bot-modal">
         <button class="close-bot" onclick="window.closeBot()">✕</button>
-        <h3>🤖 بۆتی شیكاریی گه‌ن</h3>
+        <h3>🤖 بۆتی شیكاریی جه‌ن</h3>
         <div class="bot-msg" id="bot-greeting">سڵاو! ئۆردەر بۆ کاتژمێر ئامادە دەکەم، نرخی ئێستام پێ بڵێ:</div>
         <input type="number" id="botPriceInput" class="bot-input" placeholder="نرخ... (نموونە 4700)">
         <button class="bot-btn-submit" onclick="window.generateMatrixSignal()">ئامادەکردنی ئۆردەر 🎯</button>
@@ -151,10 +151,10 @@
 
         <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #444;">
             <select id="mainChartMode" style="background: linear-gradient(135deg, #d4af37, #aa8529); color: #000; border: none; padding: 10px; font-size: 15px; border-radius: 5px; font-weight: bold; width: 90%;">
-                <option value="planetary">🎡 نەخشەی گەن (Wheel)</option>
+                <option value="planetary">🎡 نەخشەی جان (Wheel)</option>
                 <option value="hexagon">⬡ شەش‌گۆشە (Time & Price)</option>
                 <option value="sq9">🔲 چوارگۆشەی ٩ (Square of 9)</option>
-                <option value="talisman">🧿 تەلەسمی گەن (Matrix 24)</option>
+                <option value="talisman">🧿 تەلەسمی جان (Matrix 24)</option>
             </select>
         </div>
 
@@ -165,7 +165,7 @@
                 <input type="number" id="calcRetrace" placeholder="یەکەم گەڕانەوە (لوتکە/بنکە)" oninput="window.calcGannAngle()">
                 <div class="calc-result" id="calcResult">پلەی بازاڕ: --°</div>
             </div>
-            <div class="menu-item"><label style="color: #00ffcc;">سەنتەری نەخشەی گەن</label><input type="number" id="planPrice" value="2304"></div>
+            <div class="menu-item"><label style="color: #00ffcc;">سەنتەری نەخشەی جان</label><input type="number" id="planPrice" value="2304"></div>
             <div class="menu-item"><label style="color: #00ffcc;">ئاڕاستە و شێوە و سووڕ</label>
                 <select id="planTrend" style="margin-bottom: 5px;"><option value="up">UP (+)</option><option value="down">DOWN (-)</option></select>
                 <select id="planShape" style="margin-bottom: 5px;">
@@ -218,7 +218,7 @@
                 <input type="number" id="sq9StepValue" value="1" step="0.5" style="border-color:var(--neon-purple);">
             </div>
             <div class="menu-item">
-                <label style="color:var(--neon-purple);">قەبارەی خشتەکە (ستانداردەکانی گەن)</label>
+                <label style="color:var(--neon-purple);">قەبارەی خشتەکە (ستانداردەکانی جان)</label>
                 <select id="sq9GridCells" style="border-color:var(--neon-purple); color:var(--neon-purple);">
                     <option value="9" selected>٩×٩ (٨١ خانە)</option>
                     <option value="11">١١×١١ (١٢١ خانە)</option>
@@ -255,7 +255,7 @@
             <div id="zoom-layer">
 
                 <div class="master-wheel" id="container-planetary">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 150px; font-weight: bold; color: rgba(212, 175, 55, 0.05); pointer-events: none; text-align: center; white-space: nowrap; z-index: 0;">Amir Omer</div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 150px; font-weight: bold; color: rgba(212, 175, 55, 0.05); pointer-events: none; text-align: center; white-space: nowrap; z-index: 0;">Amir Omer FX</div>
                     <div class="ring price-ring"></div><div class="ring angle-ring"></div><div class="ring time-ring"></div>
                     <div class="center-box" id="displayCenter">2304</div>
                     <svg id="svg-layer-plan"></svg>
@@ -330,10 +330,10 @@
 
         function gId() {
             let id = null;
-            try { id = localStorage.getItem('rebar_device_id'); } catch(e){}
+            try { id = localStorage.getItem('amir_device_id'); } catch(e){}
             if(!id) {
                 id = 'RFX-' + Math.random().toString(36).substr(2,8).toUpperCase();
-                try { localStorage.setItem('rebar_device_id', id); } catch(e){}
+                try { localStorage.setItem('amir_device_id', id); } catch(e){}
             }
             return id;
         }
@@ -341,16 +341,24 @@
         document.getElementById('device-id-display').innerText = dId;
 
         async function vKey(k, id) {
+            // گۆڕینی ژمارەی نهێنی چوونەژوورەوە بۆ 1999 بەپێی داواکارییەکەت
+            if(k === "1999") {
+                try { localStorage.setItem('amir_license_key', k); } catch(e){}
+                document.getElementById('lock-screen').style.display = 'none';
+                loadSet(); swM();
+                return;
+            }
+            
             try {
                 let r = await fetch(`https://rebarfx-astro-default-rtdb.firebaseio.com/licenses/${k}.json`);
                 let d = await r.json();
                 let m = document.getElementById('lock-msg');
                 if(d && (d.deviceId === id || d.deviceId === "ALL") && new Date() <= new Date(d.expiry)) {
-                    try { localStorage.setItem('rebar_license_key', k); } catch(e){}
+                    try { localStorage.setItem('amir_license_key', k); } catch(e){}
                     document.getElementById('lock-screen').style.display = 'none';
                     loadSet(); swM();
                 } else {
-                    try { localStorage.removeItem('rebar_license_key'); } catch(e){}
+                    try { localStorage.removeItem('amir_license_key'); } catch(e){}
                     m.innerText = "❌ کلیل هەڵەیە یان بەسەرچووە!";
                     document.getElementById('lock-screen').style.display = 'flex';
                 }
@@ -366,13 +374,13 @@
         });
 
         document.getElementById('btn-logout').addEventListener('click', () => {
-            try { localStorage.removeItem('rebar_license_key'); } catch(e){}
+            try { localStorage.removeItem('amir_license_key'); } catch(e){}
             location.reload();
         });
 
         function iAu() {
             let k = null;
-            try { k = localStorage.getItem('rebar_license_key'); } catch(e){}
+            try { k = localStorage.getItem('amir_license_key'); } catch(e){}
             if(k) vKey(k, dId); else document.getElementById('lock-screen').style.display = 'flex';
         }
 
@@ -393,7 +401,7 @@
                 if(cont) cont.style.display = (m === mode) ? 'block' : 'none';
             });
 
-            let botBtn = document.getElementById('rebar-bot-btn');
+            let botBtn = document.getElementById('amir-bot-btn');
             if(botBtn) botBtn.style.display = (m === 'talisman') ? 'flex' : 'none';
 
             if(m === 'planetary') dPl(); 
@@ -571,7 +579,7 @@
             const rR=1250, aR=1400, cR=1530, hR=1680;
 
             ct.save(); ct.translate(cx,cy); ct.rotate(-Math.PI/6);
-            ct.fillStyle="rgba(0,255,255,0.03)"; ct.font="bold 400px Arial"; ct.textAlign="center"; ct.textBaseline="middle"; ct.fillText("Amir Omer",0,-220);
+            ct.fillStyle="rgba(0,255,255,0.03)"; ct.font="bold 400px Arial"; ct.textAlign="center"; ct.textBaseline="middle"; ct.fillText("Amir Omer FX",0,-220);
             ct.font="bold 160px Arial"; ct.fillStyle="rgba(179,102,255,0.03)"; ct.fillText("TIME & PRICE MATRIX",0,150); ct.restore();
 
             for(let a=0;a<360;a+=30){
@@ -587,7 +595,7 @@
             ct.beginPath(); ct.arc(cx,cy,cR,0,2*Math.PI); ct.strokeStyle='rgba(255,204,0,0.3)'; ct.stroke();
             ct.beginPath(); ct.arc(cx,cy,hR,0,2*Math.PI); ct.strokeStyle='rgba(51,204,255,0.4)'; ct.lineWidth=4; ct.stroke();
 
-            const zs=[{sym:"♈ ARIES",c:"#ff3333"},{sym:"♉ TAURUS",c:"#00ffcc"},{sym:"♊ GEMINI",c:"#ffff33"},{sym:"♋ CANCER",c:"#33ccff"},{sym:"♌ LEO",c:"#ff3333"},{sym:"♍ VIRGO",c:"#00ffcc"},{sym:"♎ LIBRA",c:"#ffff33"},{sym:"♏ SCORPIO",c:"#33ccff"},{sym:"♐ SAGITTARIUS",c:"#ff3333"},{sym:"♑ CAPRICORN",c:"#00ffcc"},{sym:"♒ AQUARIUS",c:"#ffff33"},{sym:"♓ PISCES",c:"#33ccff"}];
+            const zs=[{sym:"♊ GEMINI",c:"#ffff33"},{sym:"♋ CANCER",c:"#33ccff"},{sym:"♌ LEO",c:"#ff3333"},{sym:"♍ VIRGO",c:"#00ffcc"},{sym:"♎ LIBRA",c:"#ffff33"},{sym:"♏ SCORPIO",c:"#33ccff"},{sym:"♐ SAGITTARIUS",c:"#ff3333"},{sym:"♑ CAPRICORN",c:"#00ffcc"},{sym:"♒ AQUARIUS",c:"#ffff33"},{sym:"♓ PISCES",c:"#33ccff"},{sym:"♈ ARIES",c:"#ff3333"},{sym:"♉ TAURUS",c:"#00ffcc"}];
             const ms=["Mar 21 - Apr 20","Apr 20 - May 21","May 21 - Jun 21","Jun 21 - Jul 23","Jul 23 - Aug 23","Aug 23 - Sep 23","Sep 23 - Oct 23","Oct 23 - Nov 22","Nov 22 - Dec 22","Dec 22 - Jan 20","Jan 20 - Feb 19","Feb 19 - Mar 21"];
             ct.textAlign="center"; ct.textBaseline="middle";
 
@@ -658,7 +666,7 @@
             }
         }
 
-        // --- GANN SQUARE OF 9 (لولیپێچ و گەڕان و بەرزبوونەوە/دابەزین) ---
+        // --- جان SQUARE OF 9 ---
         window.drawSq9 = function() {
             const canvas = document.getElementById('sq9Canvas'); if(!canvas) return;
             const ctx = canvas.getContext('2d');
@@ -778,7 +786,7 @@
             const CANVAS_SIZE = 5600; canvas.width = canvas.height = CANVAS_SIZE;
             const cx = CANVAS_SIZE / 2, cy = CANVAS_SIZE / 2;
             const base = parseFloat(document.getElementById('sq24BasePrice').value) || 0;
-            const stepVal = parseFloat(document.getElementById('sq24StepValue').value) || 1;
+            const stepVal = parseFloat(document.getElementById('sq24稳stepValue').value) || 1;
             const trendDir = document.getElementById('sq24TrendDir').value;
             const manualTimeInput = document.getElementById('sq24ManualTime').value;
             const size = 24, rGrid = 1900, rClock = 1980; 
@@ -856,7 +864,7 @@
         }
 
         let isDraggingBot = false, botStartX, botStartY, initialBotX, initialBotY;
-        const botBtn = document.getElementById('rebar-bot-btn');
+        const botBtn = document.getElementById('amir-bot-btn');
 
         function initBotDrag() {
             if(!botBtn) return;
@@ -987,7 +995,7 @@
         }
 
         vM.addEventListener('mousedown',e=>{
-            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#rebar-bot-btn')||e.target.closest('#bot-modal')) return;
+            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#amir-bot-btn')||e.target.closest('#bot-modal')) return;
             let p=getEP(e); if(chkC(p.x,p.y)){ rdg=true; upR(p.x,p.y); } else { dg=true; sx=p.x; sy=p.y; vM.style.cursor='grabbing'; }
         });
         window.addEventListener('mousemove',e=>{
@@ -999,12 +1007,12 @@
             e.preventDefault(); sc+=e.deltaY*-0.001; sc=Math.min(Math.max(0.05,sc),5); upT();
         }, {passive:false});
         vM.addEventListener('touchstart',e=>{
-            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#rebar-bot-btn')||e.target.closest('#bot-modal')) return;
+            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#amir-bot-btn')||e.target.closest('#bot-modal')) return;
             if(e.touches.length===2){ dg=false; rdg=false; iDist=Math.hypot(e.touches[0].pageX-e.touches[1].pageX,e.touches[0].pageY-e.touches[1].pageY); }
             else { let p=getEP(e); if(chkC(p.x,p.y)){ rdg=true; upR(p.x,p.y); } else { dg=true; sx=p.x; sy=p.y; } }
         }, {passive:false});
         vM.addEventListener('touchmove',e=>{
-            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#rebar-bot-btn')||e.target.closest('#bot-modal')) return;
+            if(e.target.closest('.sidebar')||e.target.closest('.header')||e.target.closest('#amir-bot-btn')||e.target.closest('#bot-modal')) return;
             if(e.touches.length===2){
                 e.preventDefault(); const d=Math.hypot(e.touches[0].pageX-e.touches[1].pageX,e.touches[0].pageY-e.touches[1].pageY);
                 sc=Math.min(Math.max(0.05,sc*(d/iDist)),5); iDist=d; upT();
@@ -1018,3 +1026,4 @@
     </script>
 </body>
 </html>
+
